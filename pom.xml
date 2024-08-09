@@ -36,19 +36,19 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.1-R0.1-SNAPSHOT</version>
+            <version>1.20.6-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.10.6</version>
+            <version>2.11.6</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.sgtcaze</groupId>
-            <artifactId>NametagEdit</artifactId>
-            <version>master-SNAPSHOT</version>
+            <groupId>com.nametagedit</groupId>
+            <artifactId>nametagedit</artifactId>
+            <version>4.4.16</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

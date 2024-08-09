@@ -11,7 +11,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
-public class PlayerChangeWorld implements Listener {
+public class PlayerChangeWorldListener implements Listener {
+
     @EventHandler
     public void onChangeWorld(PlayerChangedWorldEvent event) {
         Player player = event.getPlayer();
@@ -23,12 +24,6 @@ public class PlayerChangeWorld implements Listener {
             Util.setPlayerState(player.getUniqueId(), true);
             Bukkit.getPluginManager().callEvent(new PVPToggleEvent(player, false));
             Chat.send(player, "PVP_WORLD_CHANGE_DISABLED");
-            /*if (PvPToggle.instance.getConfig().getBoolean("SETTINGS.PARTICLES")) {
-                Util.particleEffect(player);
-            }
-			if(PvPToggle.instance.getConfig().getBoolean("SETTINGS.NAMETAG")) {
-				Util.ChangeNametag(player, "&c");
-			}*/
             return;
         }
 
@@ -40,10 +35,10 @@ public class PlayerChangeWorld implements Listener {
             if (PvPToggle.instance.getConfig().getBoolean("SETTINGS.PARTICLES")) {
                 Util.particleEffect(player);
             }
-			if(PvPToggle.instance.getConfig().getBoolean("SETTINGS.NAMETAG")) {
-				Util.ChangeNametag(player, "&c");
-			}
-            return;
+            if (PvPToggle.instance.getConfig().getBoolean("SETTINGS.NAMETAG")) {
+                Util.changeNametag(player, "&c");
+            }
         }
     }
+
 }

@@ -20,7 +20,7 @@
         </repository>
         <repository>
             <id>placeholderapi</id>
-            <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
@@ -28,7 +28,7 @@
         </repository>
         <repository>
             <id>nametagedit-repo</id>
-            <url>http://ci.nametagedit.com/plugin/repository/everything/</url>
+            <url>https://ci.nametagedit.com/plugin/repository/everything/</url>
         </repository>
     </repositories>
 

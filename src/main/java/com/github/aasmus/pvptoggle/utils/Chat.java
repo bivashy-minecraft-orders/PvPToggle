@@ -1,8 +1,9 @@
 package com.github.aasmus.pvptoggle.utils;
 
+import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.CommandSender;
 import com.github.aasmus.pvptoggle.PvPToggle;
-import org.bukkit.ChatColor;
 
 public class Chat {
 
@@ -11,7 +12,8 @@ public class Chat {
         String msg = PvPToggle.instance.getConfig().getString("MESSAGES." + message);
         if (msg == null || msg.isEmpty())
             return;
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+        BukkitAudiences audiences = PvPToggle.instance.adventure();
+        audiences.sender(sender).sendMessage(MiniMessage.miniMessage().deserialize(msg));
     }
 
     // sends message with a parameter
@@ -19,8 +21,9 @@ public class Chat {
         String msg = PvPToggle.instance.getConfig().getString("MESSAGES." + message);
         if (msg == null || msg.isEmpty())
             return;
+        BukkitAudiences audiences = PvPToggle.instance.adventure();
         String output = msg.replaceAll("<parameter>", parameter);
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', output));
+        audiences.sender(sender).sendMessage(MiniMessage.miniMessage().deserialize(output));
     }
 
     // sends message with a parameter and pvp state
@@ -34,7 +37,8 @@ public class Chat {
         } else {
             output = output.replaceAll("<pvpstate>", "on");
         }
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', output));
+        BukkitAudiences audiences = PvPToggle.instance.adventure();
+        audiences.sender(sender).sendMessage(MiniMessage.miniMessage().deserialize(output));
     }
 
 }

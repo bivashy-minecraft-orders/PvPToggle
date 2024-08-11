@@ -1,6 +1,7 @@
 package com.github.aasmus.pvptoggle.utils;
 
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import net.kyori.adventure.platform.bukkit.BukkitComponentSerializer;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.CommandSender;
 import com.github.aasmus.pvptoggle.PvPToggle;
@@ -39,6 +40,13 @@ public class Chat {
         }
         BukkitAudiences audiences = PvPToggle.instance.adventure();
         audiences.sender(sender).sendMessage(MiniMessage.miniMessage().deserialize(output));
+    }
+
+    public static String getColoredMessage(String message) {
+        String msg = PvPToggle.instance.getConfig().getString("MESSAGES." + message);
+        if (msg == null || msg.isEmpty())
+            return msg;
+        return BukkitComponentSerializer.legacy().serialize(MiniMessage.miniMessage().deserialize(msg));
     }
 
 }

@@ -14,11 +14,13 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
 
     @Override
     public String onPlaceholderRequest(Player player, String identifier) {
-        if (player == null) {return "";}
+        if (player == null) {
+            return "";
+        }
 
-        //Placeholder: %pvptoggle_positive_rep%
-        if (identifier.equals("pvp_state")) {
-            return PvPToggle.instance.players.get(player.getUniqueId()) ? "&aOff" : "&cOn";
+        // %pvp_state%
+        if (identifier.equals("state")) {
+            return PvPToggle.instance.players.get(player.getUniqueId()) ? Chat.getColoredMessage("PLACEHOLDER_STATE_OFF") : Chat.getColoredMessage("PLACEHOLDER_STATE_ON");
         }
 
         return null;
@@ -36,7 +38,7 @@ public class PlaceholderAPIHook extends PlaceholderExpansion {
 
     @Override
     public String getIdentifier() {
-        return "PvPToggle";
+        return "pvp";
     }
 
     @Override

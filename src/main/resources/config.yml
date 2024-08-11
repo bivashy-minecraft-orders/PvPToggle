@@ -14,6 +14,8 @@ SETTINGS:
 ##<pvpstate> goes in place of a player's current pvp state
 ##<parameter> goes in place of a player's name or other parameter
 MESSAGES:
+  PLACEHOLDER_STATE_ON: '<red>On'
+  PLACEHOLDER_STATE_OFF: '<green>Off'
   HELP_HEADER: '&a&lCommands:'
   HELP_GENERAL_USEAGE: '&aUse /pvp {toggle|on|off|status} to change/view pvp state.'
   HELP_VIEW_OTHERS: '&aUse /pvp <player> to see another players pvp state.'
